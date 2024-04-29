@@ -1,0 +1,7 @@
+{
+    "name": "rd-training-client",
+    "dependencies": {
+        "@simpleview/sv-graphql-client": "4.0.0",
+        "mongodb": "6.5.0"
+    }
+}
