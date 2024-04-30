@@ -22,10 +22,11 @@ class Movies {
             variables,
             url: this._graphUrl,
             headers,
+            key: "training.movies_find",
             clean: true
         });
 
-        return response.training.movies_find;
+        return response;
     }
 
     async insert({ input, fields, context = this._graphServer.context, headers }) {
@@ -44,10 +45,11 @@ class Movies {
             variables,
             url: this._graphUrl,
             headers,
+            key: "training.movies_insert",
             clean: true
         });
 
-        return response.training.movies_insert;
+        return response;
     }
 
     async remove({ filter, fields, context = this._graphServer.context, headers }) {
@@ -66,10 +68,11 @@ class Movies {
             variables,
             url: this._graphUrl,
             headers,
+            key: "training.movies_remove",
             clean: true
         });
 
-        return response.training.movies_remove;
+        return response;
     }
 }
 

@@ -22,10 +22,11 @@ class People {
             variables,
             url: this._graphUrl,
             headers,
+            key: "training.people_find",
             clean: true
         });
 
-        return response.training.people_find;
+        return response;
     }
 
     async insert({ input, fields, context = this._graphServer.context, headers }) {
@@ -44,10 +45,11 @@ class People {
             variables,
             url: this._graphUrl,
             headers,
+            key: "training.people_insert",
             clean: true
         });
 
-        return response.training.people_insert;
+        return response;
     }
 
     async remove({ filter, fields, context = this._graphServer.context, headers }) {
@@ -66,10 +68,11 @@ class People {
             variables,
             url: this._graphUrl,
             headers,
+            key: "training.people_remove",
             clean: true
         });
 
-        return response.training.people_remove;
+        return response;
     }
 }
 
