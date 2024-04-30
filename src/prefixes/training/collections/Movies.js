@@ -1,7 +1,4 @@
-const {
-    nullToUndefined,
-    query
-} = require("@simpleview/sv-graphql-client");
+const { query } = require("@simpleview/sv-graphql-client");
 
 class Movies {
     constructor({ graphUrl, graphServer }) {
@@ -22,14 +19,12 @@ class Movies {
                 filter
             },
             url: this._graphUrl,
-            headers
+            headers,
+            clean: true
         };
         let response = await query(graphqlQuery);
 
-        response = response.training.movies_find;
-        nullToUndefined(response);
-
-        return response;
+        return response.training.movies_find;
     }
 
     async insert({ input, fields, context = this._graphServer.context, headers }) {
@@ -45,14 +40,12 @@ class Movies {
                 input
             },
             url: this._graphUrl,
-            headers
+            headers,
+            clean: true
         };
         let response = await query(graphqlQuery);
 
-        response = response.training.movies_insert;
-        nullToUndefined(response);
-
-        return response;
+        return response.training.movies_insert;
     }
 
     async remove({ filter, fields, context = this._graphServer.context, headers }) {
@@ -68,14 +61,12 @@ class Movies {
                 filter
             },
             url: this._graphUrl,
-            headers
+            headers,
+            clean: true
         };
         let response = await query(graphqlQuery);
 
-        response = response.training.movies_remove;
-        nullToUndefined(response);
-
-        return response;
+        return response.training.movies_remove;
     }
 }
 
