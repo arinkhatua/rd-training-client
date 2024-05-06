@@ -5,8 +5,5 @@
     "dependencies": {
         "@simpleview/sv-graphql-client": "4.0.0",
         "graphql": "16.8.1"
-    },
-    "devDependencies": {
-        "eslint": "8.57.0"
     }
 }
