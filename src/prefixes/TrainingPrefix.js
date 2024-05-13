@@ -13,18 +13,52 @@ class TrainingPrefix {
         this.people = new People({ graphUrl, graphServer });
     }
 
-    async initializeTestData({ fields, context = this._graphServer.context, headers }) {
+    async clearTestData({ fields, context = this._graphServer.context, headers }) {
         const response = await query({
-            query: `mutation initialize_test_data {
+            query: `mutation clear_test_data {
                         training {
-                            test_data_initialize {
+                            test_data_clear {
                                 ${fields}
                             }
                         }
                     }`,
             url: this._graphUrl,
             headers,
-            key: "training.test_data_initialize"
+            key: "training.test_data_clear"
+        });
+
+        return response;
+    }
+
+    async insertTestData({ fields, context = this._graphServer.context, headers }) {
+        const response = await query({
+            query: `mutation insert_test_data {
+                        training {
+                            test_data_insert {
+                                ${fields}
+                            }
+                        }
+                    }`,
+            url: this._graphUrl,
+            headers,
+            key: "training.test_data_insert"
+        });
+
+        return response;
+    }
+
+    async resetTestData({ fields, context = this._graphServer.context, headers }) {
+        const response = await query({
+            query: `mutation reset_test_data {
+                        training {
+                            test_data_reset {
+                                ${fields}
+                            }
+                        }
+                    }`,
+            url: this._graphUrl,
+            headers,
+            key: "training.test_data_reset"
         });
 
         return response;
