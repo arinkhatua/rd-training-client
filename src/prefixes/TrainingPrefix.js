@@ -30,23 +30,6 @@ class TrainingPrefix {
         return response;
     }
 
-    async insertTestData({ fields, context = this._graphServer.context, headers }) {
-        const response = await query({
-            query: `mutation insert_test_data {
-                        training {
-                            test_data_insert {
-                                ${fields}
-                            }
-                        }
-                    }`,
-            url: this._graphUrl,
-            headers,
-            key: "training.test_data_insert"
-        });
-
-        return response;
-    }
-
     async resetTestData({ fields, context = this._graphServer.context, headers }) {
         const response = await query({
             query: `mutation reset_test_data {
