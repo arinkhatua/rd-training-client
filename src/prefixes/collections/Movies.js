@@ -12,13 +12,15 @@ class Movies {
 		};
 
 		const response = await query({
-			query: `query findMovies($filter: training_movies_find_filter) {
-						training {
-							movies_find(filter: $filter) {
-								${fields}
-							}
+			query: `
+				query findMovies($filter: training_movies_find_filter) {
+					training {
+						movies_find(filter: $filter) {
+							${fields}
 						}
-					}`,
+					}
+				}
+			`,
 			variables,
 			url: this._graphUrl,
 			headers,
@@ -35,13 +37,15 @@ class Movies {
 		};
 
 		const response = await query({
-			query: `mutation insertMovies($input: [training_movies_insert_input!]!) {
-						training {
-							movies_insert(input: $input) {
-								${fields}
-							}
+			query: `
+				mutation insertMovies($input: [training_movies_insert_input!]!) {
+					training {
+						movies_insert(input: $input) {
+							${fields}
 						}
-					}`,
+					}
+				}
+			`,
 			variables,
 			url: this._graphUrl,
 			headers,
@@ -58,13 +62,15 @@ class Movies {
 		};
 
 		const response = await query({
-			query: `mutation removeMovies($filter: training_movies_remove_filter) {
-						training {
-							movies_remove(filter: $filter) {
-								${fields}
-							}
+			query: `
+				mutation removeMovies($filter: training_movies_remove_filter) {
+					training {
+						movies_remove(filter: $filter) {
+							${fields}
 						}
-					}`,
+					}
+				}
+			`,
 			variables,
 			url: this._graphUrl,
 			headers,

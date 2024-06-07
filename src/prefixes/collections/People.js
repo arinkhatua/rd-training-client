@@ -12,13 +12,15 @@ class People {
 		};
 
 		const response = await query({
-			query: `query findPeople($filter: training_people_find_filter) {
-						training {
-							people_find(filter: $filter) {
-								${fields}
-							}
+			query: `
+				query findPeople($filter: training_people_find_filter) {
+					training {
+						people_find(filter: $filter) {
+							${fields}
 						}
-					}`,
+					}
+				}
+			`,
 			variables,
 			url: this._graphUrl,
 			headers,
@@ -35,13 +37,15 @@ class People {
 		};
 
 		const response = await query({
-			query: `mutation insertPeople($input: [training_people_insert_input!]!) {
-						training {
-							people_insert(input: $input) {
-								${fields}
-							}
+			query: `
+				mutation insertPeople($input: [training_people_insert_input!]!) {
+					training {
+						people_insert(input: $input) {
+							${fields}
 						}
-					}`,
+					}
+				}
+			`,
 			variables,
 			url: this._graphUrl,
 			headers,
@@ -58,13 +62,15 @@ class People {
 		};
 
 		const response = await query({
-			query: `mutation removePeople($filter: training_people_remove_filter) {
-						training {
-							people_remove(filter: $filter) {
-								${fields}
-							}
+			query: `
+				mutation removePeople($filter: training_people_remove_filter) {
+					training {
+						people_remove(filter: $filter) {
+							${fields}
 						}
-					}`,
+					}
+				}
+			`,
 			variables,
 			url: this._graphUrl,
 			headers,

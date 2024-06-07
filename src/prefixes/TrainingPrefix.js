@@ -15,13 +15,15 @@ class TrainingPrefix {
 
 	async test_data_clear({ fields, context = this._graphServer.context, headers }) {
 		const response = await query({
-			query: `mutation clearTestData {
-						training {
-							test_data_clear {
-								${fields}
-							}
+			query: `
+				mutation clearTestData {
+					training {
+						test_data_clear {
+							${fields}
 						}
-					}`,
+					}
+				}
+			`,
 			url: this._graphUrl,
 			headers,
 			key: "training.test_data_clear"
@@ -32,13 +34,15 @@ class TrainingPrefix {
 
 	async test_data_reset({ fields, context = this._graphServer.context, headers }) {
 		const response = await query({
-			query: `mutation resetTestData {
-						training {
-							test_data_reset {
-								${fields}
-							}
+			query: `
+				mutation resetTestData {
+					training {
+						test_data_reset {
+							${fields}
 						}
-					}`,
+					}
+				}
+			`,
 			url: this._graphUrl,
 			headers,
 			key: "training.test_data_reset"
